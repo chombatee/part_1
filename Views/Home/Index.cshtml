@@ -1,0 +1,123 @@
+﻿@model part_1.Models.loginModel
+
+@{
+    ViewData["Title"] = "Login";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #B2E3B2;
+            color: #A3C1DA;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: auto;
+            background-color: #fffde7; 
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #A3C1DA; 
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        .profile-icon {
+            font-size: 5rem;
+            color: #90EE90;
+            
+        }
+
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #66bb6a;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+            input:focus, select:focus {
+                border-color: #A3C1DA; 
+                outline: none;
+            }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #A3C1DA;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            font-size: 16px;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #005700; 
+            }
+
+        a {
+            color: #FFA07A;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+        p {
+            color: #d32f2f;
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Login</h2>
+        <h1 class="fa fa-user-circle profile-icon"></h1>
+        <form asp-action="Login" method="post">
+            <label for="username">Email</label>
+            <input asp-for="Username" type="text" id="username" placeholder="Enter your email" required />
+            <span asp-validation-for="Username" class="text-danger"></span>
+
+            <label for="password">Password</label>
+            <input asp-for="Password" type="password" id="password" placeholder="Enter your password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
+
+            <label for="work-type">Role of Work</label>
+            <select asp-for="WorkType" id="work-type" required>
+                <option value="" disabled selected>Select type of work</option>
+                <option value="lecturer">Lecturer</option>
+                <option value="coordinator">Programme Coordinator</option>
+            </select>
+            <span asp-validation-for="WorkType" class="text-danger"></span>
+
+            <button type="submit">Login</button>
+
+            <p>Don't have an account? <a asp-action="Register">Register here</a></p>
+        </form>
+    </div>
+
+</body>
+</html>

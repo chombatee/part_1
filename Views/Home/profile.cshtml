@@ -1,0 +1,134 @@
+﻿@model part_1.Models.on_load
+@{
+    ViewData["Title"] = "Status";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecturer Profile - Yonela Nube</title>
+    
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 60%;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            display:inline-block;
+        }
+
+        .profile-card {
+            display: flex;
+            align-items: flex-start; 
+            padding: 20px;
+        }
+
+       
+
+        
+
+        .profile-details {
+            flex: 2;
+            padding-left: 40px;
+        }
+
+        .profile-details h2 {
+            margin-top: 0;
+            color: #333;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .profile-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .profile-details th, .profile-details td {
+            padding: 8px;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        .profile-details th {
+            width: 30%;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .profile-details td {
+            color: #555;
+        }
+
+      
+            .profile-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .profile-icon {
+                margin-bottom: 20px;
+            }
+
+            .profile-details {
+                padding-left: 0;
+            }
+
+            .profile-details table {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="profile-card">
+       
+
+        <!-- Right side: Lecturer details -->
+        <div class="profile-details">
+            <h2>@Model.name</h2>
+            <table>
+                <tr>
+                    <th><i class="fas fa-briefcase"></i> Position:</th>
+                    <td>@Model.role</td>
+                </tr>
+                <tr>
+                    <th><i class="fas fa-envelope"></i> Email:</th>
+                    <td>@Model.email</td>
+                </tr>
+                <tr>
+                    <th><i class="fas fa-building"></i> Office:</th>
+                    <td>12th Floor, Open Office</td>
+                </tr>
+                <tr>
+                    <th><i class="fas fa-phone"></i> Phone:</th>
+                    <td>(+27) 076 253 627</td>
+                </tr>
+                <tr>
+                    <th><i class="fas fa-map-marker-alt"></i> Location:</th>
+                    <td>JHB 1811</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

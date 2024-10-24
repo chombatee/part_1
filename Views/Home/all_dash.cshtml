@@ -1,0 +1,77 @@
+﻿@model part_1.Models.on_load
+
+@{
+    ViewData["Title"] = "Contract Monthly Claim System";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #90EE90;
+            color: #66bb6a; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            margin: 0 auto;
+            background-color: #77DD77;
+            padding: 20px;
+            border-radius: 0px; 
+        }
+
+        h1, h2 {
+            color: #66bb6a; 
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+        
+
+
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+            .cta a {
+                padding: 10px 20px;
+                background-color: #98FB98;
+                color: white;
+                text-decoration: none;
+                border-radius: 0; 
+                font-size: 1.2em;
+            }
+
+                .cta a:hover {
+                    background-color: #4CAF50; 
+                }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+
+        <div class="cta">
+            @if (@Model.role == "lecturer")
+            {
+                <a asp-action="claims">Submit Your Claim Now</a>
+            }
+            else
+            {
+                <a asp-action="approve">Begin the Approval Process</a>
+            }
+        </div>
+    </div>
+
+</body>
+</html>

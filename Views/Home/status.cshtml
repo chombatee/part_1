@@ -1,0 +1,159 @@
+﻿@model part_1.Models.get_cliams
+
+@{
+    ViewData["Title"] = "Status";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Monthly Claim</title>
+
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #B5E9B6; 
+            color: #A4C8E1;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fffde7;
+         
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #66bb6a;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+        }
+
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 14px;
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            color: #5c6bc0; 
+        }
+
+        th {
+            background-color: #e1bee7; 
+            font-weight: bold;
+        }
+
+        .fa-check {
+            color: #66bb6a; 
+            cursor: pointer;
+        }
+
+        .fa-times {
+            color: #ef5350; 
+            cursor: pointer;
+        }
+
+        .fa-check:hover, .fa-times:hover {
+            transform: scale(1.1);
+        }
+
+        .status-pending {
+            color: #ffb74d; 
+        }
+
+        .status-approved {
+            color: #66bb6a; 
+        }
+
+        .status-rejected {
+            color: #ef5350; 
+        }
+
+        .status {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        a {
+            color: #FFA500;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" style="border:none;text-align:start">
+        <h2>Claims</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Email</th>
+                    <th>Module</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Hours Worked</th>
+                    <th>Hour Rate</th>
+                    <th>Total</th>
+                    <th>Description</th>
+                    <th>Document</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @for (int count = 0; count < Model.username.Count; count++)
+                {
+                    <tr>
+                        <td>@Model.no[count]</td>
+                        <td>@Model.username[count]</td>
+                        <td>@Model.module[count]</td>
+                        <td>@Model.claim_date[count]</td>
+                        <td>@Model.period[count]</td>
+                        <td>@Model.hours_worked[count]</td>
+                        <td>@Model.hour_rate[count]</td>
+                        <td>@Model.total[count]</td>
+                        <td>@Model.description[count]</td>
+                        <td>
+                            @if (@Model.supporting_document[count]=="" || @Model.supporting_document[count] == "none")
+                            {
+                                <span>No file</span>
+                            }
+                            else
+                            {
+                                <a href="@Url.Content("~/pdf/" + @Model.supporting_document[count])" target="_blank">View Document</a>
+                            }
+                        </td>
+                        <td class="status @Model.status[count]">
+                            @Model.status[count]
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

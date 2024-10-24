@@ -1,0 +1,275 @@
+﻿@model part_1.Models.loads_all
+
+@{
+    ViewData["Title"] = "Approval";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fce4ec; 
+            margin: 0;
+            padding: 0;
+            color: #006400; 
+        }
+
+        .container {
+            width: 100%;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-top: 5rem;
+        }
+
+        h2 {
+            text-align: center;
+            color: #006400;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #006400; 
+            display: block;
+        }
+
+        .form-group {
+            width: 48%;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #90EE90;
+            border-radius: 5px;
+        }
+
+            input:focus, select:focus, textarea:focus {
+                border-color: #006400; 
+                outline: none;
+            }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #e91e63; /* Pink button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #c2185b; /* Darker pink on hover */
+            }
+
+        .optional {
+            color: #777;
+            font-style: italic;
+        }
+
+        /* Table Styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #90EE90; 
+            font-weight: bold;
+            color: #006400; 
+        }
+
+        .fa-check {
+            color: #4caf50; /* Green checkmark */
+            cursor: pointer;
+        }
+
+        .fa-times {
+            color: #d32f2f; /* Red cross */
+            cursor: pointer;
+        }
+
+            .fa-check:hover, .fa-times:hover {
+                transform: scale(1.1);
+            }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+        }
+
+            .popup .popup-content {
+                margin: 0;
+                font-size: 16px;
+                color: #006400; 
+            }
+
+            .popup .popup-buttons {
+                text-align: right;
+            }
+
+            .popup .popup-button {
+                background-color: #ADD8E6; 
+                color: white;
+                border: none;
+                border-radius: 4px;
+                padding: 10px 15px;
+                cursor: pointer;
+                margin-left: 10px;
+            }
+
+                .popup .popup-button.close {
+                    background-color: #d32f2f; /* Red close button */
+                }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Claims submitted for ICT</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Email</th>
+                    <th>Module</th>
+                    <th>From</th>
+                    <th>To </th>
+                    <th>Hours Worked</th>
+                    <th>Hour Rate</th>
+                    <th>Total</th>
+                    <th>Description</th>
+                    <th>Document</th>
+                    <th>Status</th>
+                    <th>Approve</th>
+                    <th>Not Approve</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int count = 0; count < Model.username.Count; count++)
+                {
+                    <tr>
+                        <td>@Model.no[count]</td>
+                        <td>@Model.username[count]</td>
+                        <td>@Model.module[count]</td>
+                        <td>@Model.claim_date[count]</td>
+                        <td>@Model.period[count]</td>
+                        <td>@Model.hours_worked[count]</td>
+                        <td>@Model.hour_rate[count]</td>
+                        <td>@Model.total[count]</td>
+                        <td>@Model.description[count]</td>
+                        <td>
+                            @if (@Model.supporting_document[count] == "" || @Model.supporting_document[count] == "none")
+                            {
+                                <span>no file</span>
+                            }
+                            else
+                            {
+                                <a href="@Url.Content("~/pdf/" + @Model.supporting_document[count])" target="_blank">View Document</a>
+                            }
+                        </td>
+                        <td><i class="fa fa-check" onclick="approveClaim('@Model.id[count])')" title="Approve"></i></td>
+                        <td><i class="fa fa-times" onclick="rejectClaim('@Model.id[count])')" title="Not Approve"></i></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div id="overlay" class="overlay"></div>
+        <div id="popup" class="popup">
+            <div id="popup-content" class="popup-content"></div>
+            <form method="post" asp-action="approves">
+                <input id="ids" asp-for="ids" type="text" style="display:none" />
+                <input id="on" asp-for="on" type="text" style="display:none" />
+                <div class="popup-buttons">
+                    <button class="popup-button close" onclick="closePopup()">Done</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+       
+        function showPopup(message) {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            const popupContent = document.getElementById('popup-content');
+            popupContent.innerHTML = message; 
+            popup.style.display = 'block'; 
+            overlay.style.display = 'block';
+        }
+
+       
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            const overlay = document.getElementById('overlay');
+            popup.style.display = 'none'; 
+            overlay.style.display = 'none'; 
+        }
+
+       
+        function approveClaim(claimId) {
+            document.getElementById('on').value = "yes";
+            document.getElementById('ids').value = claimId;
+            const message = `Claim #${claimId} has been successfully approved.`;
+            showPopup(message);
+        }
+
+       
+        function rejectClaim(claimId) {
+            document.getElementById('ids').value = claimId;
+            document.getElementById('on').value = "no";
+            const message = `Claim #${claimId} has been rejected.`;
+            showPopup(message);
+        }
+    </script>
+</body>
+</html>
