@@ -17,7 +17,7 @@ Step 6 He/she will get a “success” message for approval or success for rejec
 
 
 step 7 and last the lecturer will be able to go back into his profile under “track claims” to see whether or not the claim has been approved 
-
+I 
  
 
 
