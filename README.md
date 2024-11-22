@@ -3,7 +3,7 @@
 HELLO ☺️ welcome to the CMCMS
 
 
-The contract monthly claims management system  is a practical application created for Independent contractor lecturers to simplify the often complex claim submission and approval processes that lecturers and program co-ordinators struggle with it is a ASP.NET MVC application written in C#
+The contract monthly claims management system  is a practical application created for Independent contractor lecturers to simplify the often complex claim submission and approval processes that lecturers and program co-ordinators struggle with it is a ASP.NET MVC application written in C#👩🏾‍💻
 
 My aim during the development process to enhance accuracy, efficiency, and user satisfaction in claiming management.
 This application was developed to allow users(lecturers and program coordinators ) be able to lecturers will submit monthly claims with calculated totals based on hours they worked and their hourly rates.to register by providing their full name, email, role, module, username and password.
@@ -53,24 +53,26 @@ Update The application now allows users to upload  supporting files PDFs and Wor
 Uploaded files are saved in a designated folder within the wwwroot directory.
 
 
-Instruction manual on how to use the Contract Monthly Claim System
-First start by Registering for an account by Inserting Entering your full Name, Email Address,
-Create a username and password 
- 
-Then login using username and password 
+INSTRUCTION MANUAL ON HOW TO USE CMCMS
+STEP 1 
+Start by Registering for an account by  Entering your full Name, Email Address,role, module, desired Username and Password.
+step 2  
+login using the same  username and password. 
  
 
 Step3 would be for lecturers to submit a claim they would Click submit claim now 
- 
 
 
 STEP 4 The program coordinator will be able to login or create an account if he or she has not registered his account  like everyone else in order to give approval  or rejection the claim  
 
-STEP 5 He/she will be  lead to a claims page where they will be able to see the claims submitted  
-Step 6 He/she will get a “success” message for approval or success for rejection  
+STEP 5 
+You will be  lead to a claims page where they will be able to see the claims submitted  
+Step 6 
+You will get a “success” message for approval or success for rejection  
 
 
-step 7 and last the lecturer will be able to go back into his profile under “track claims” to see whether or not the claim has been approved 
+step 7 a
+last the lecturer will be able to go back into his profile under “track claims” to see whether or not the claim has been approved 
  
 
 
