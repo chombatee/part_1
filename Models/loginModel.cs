@@ -35,7 +35,7 @@ namespace part_1.Models
         public string email { get; set; }
         public string role { get; set; }
         public connect conn = new connect();
-
+        public IFormFile PdfDocument { get; set; }// Use IFormFile for file uploads
 
         public claim()
         {

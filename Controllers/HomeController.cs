@@ -63,8 +63,19 @@ namespace part_1.Controllers
             string description = claims.description;
             string documents = claims.supporting_document;
 
-            //check file
-
+            //check file uploaded
+            if(claims.PdfDocument  != null&& claims.PdfDocument.Length>0)
+            { 
+            //makes sure the uploaded file is pdf
+            var ext = Path.GetExtension(claims.PdfDocument.FileName).ToLowerInvariant();
+                if (ext != ".pdf")
+                {
+                    ModelState.AddModelError(("wrong file format", "Only PDF files are allowed.");
+                    return View(claims);
+                }
+                //Define folder path
+                string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/pdf");
+            }
             string file_found = "no";
             string filename = "none";
             string filePath = "";
