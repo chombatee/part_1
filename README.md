@@ -67,6 +67,7 @@ STEP 4 The program coordinator will be able to login or create an account if he 
 
 STEP 5 
 You will be  lead to a claims page where they will be able to see the claims submitted  
+Program coordinator can view the supporting documents in connection with the lecturers claim by clicking “View Document” and the document will download instantly onto your computer
 Step 6 
 You will get a “success” message for approval or success for rejection  
 
