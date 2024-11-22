@@ -1,5 +1,11 @@
 # part_1
-The contract monthly claims management system  is a practical application created for Independent contractor lecturers to simplify the often complex claim submission and approval processes that lecturers and program co-ordinators struggle with it is a ASP.NET MVC application written in C#.
+
+HELLO ☺️
+The contract monthly claims management system  is a practical application created for Independent contractor lecturers to simplify the often complex claim submission and approval processes that lecturers and program co-ordinators struggle with it is a ASP.NET MVC application written in C#
+
+My aim during the development process to enhance accuracy, efficiency, and user satisfaction in claiming management.
+This application was developed to allow users(lecturers and program coordinators ) be able to lecturers will submit monthly claims with calculated totals based on hours they worked and their hourly rates.to register by providing their full name, email, role, module, username and password.
+
 Instruction manual on how to use the Contract Monthly Claim System
 First start by Registering for an account by Inserting Entering your full Name, Email Address,
 Create a username and password 
