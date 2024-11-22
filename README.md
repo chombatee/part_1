@@ -54,6 +54,8 @@ Uploaded files are saved in a designated folder within the wwwroot directory.
 
 
 INSTRUCTION MANUAL ON HOW TO USE CMCMS
+
+
 STEP 1 
 Start by Registering for an account by  Entering your full Name, Email Address,role, module, desired Username and Password.
 step 2  
