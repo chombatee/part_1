@@ -75,7 +75,7 @@ step 7 a
 last the lecturer will be able to go back into his profile under “track claims” to see whether or not the claim has been approved 
  
 
-
+Enjoy🌸
 
 
 
