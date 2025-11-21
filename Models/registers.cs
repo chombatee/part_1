@@ -17,8 +17,7 @@ namespace part_1.Models
          
             public string Module { get; set; }
 
-            public string Password { get; set; }
-        
+            public string Password { get; set; }        
 
     }
 }
